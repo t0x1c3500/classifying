@@ -3,7 +3,7 @@ import csv
 from openpyxl import Workbook
 
 
-directory_path = './list_3/results'
+directory_path = './list_4/results'
 list_results = []
 
 for filename in os.listdir(directory_path):
@@ -50,4 +50,4 @@ if isinstance(list_results, list) and len(list_results) > 0:
             else:
                 cell.value = value
 
-workbook.save("list_3-results.xlsx")
+workbook.save("list_4-results.xlsx")
