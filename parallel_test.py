@@ -4,10 +4,11 @@ import aiohttp
 import time
 import json
 
-openai.api_key = ("sk-proj-zGDtmNeqhraacL4u-df0Ss3cotBYokc2C8l42FGHq_ekVQEQ"
-                  "-rWlPEohUoaZivg6TvpiDy9Gs7T3BlbkFJWUERsgDuMB3pKL8DubJPC0bw6rvUAgmmyjgtMzWyRBRZUjodrMX_3j_"
-                  "8A715wD6aPMCdYVa70A")
-
+# openai.api_key = ("sk-proj-zGDtmNeqhraacL4u-df0Ss3cotBYokc2C8l42FGHq_ekVQEQ"
+#                   "-rWlPEohUoaZivg6TvpiDy9Gs7T3BlbkFJWUERsgDuMB3pKL8DubJPC0bw6rvUAgmmyjgtMzWyRBRZUjodrMX_3j_"
+#                   "8A715wD6aPMCdYVa70A")
+openai.api_key = ("sk-proj-kkELGnpFlM2uL2SCD6YKfTbye3AQA7E64J-JYceFvZJyXVmcsBSmN3N9MYBXooGZdsOtmPkvEOT3BlbkFJB5nHMQBrf-"
+                  "7wy2q5d-Z8kWHmoTtIhBX3CbgKeM8-VLSKOLezWAlXIXg4Zm9mc4kKslb_8ELXwA")
 
 async def fetch_with_retry(session, prompt, product_titles, website, max_retries=5):
     print(f"Processing {website}")
@@ -28,7 +29,7 @@ async def fetch_with_retry(session, prompt, product_titles, website, max_retries
             ) as response:
                 if response.status == 200:
                     result = await response.json()
-                    with open(f"./list_5/results/{website}.txt", 'w') as write_s:
+                    with open(f"./list_6/results/{website}.txt", 'w') as write_s:
                         write_s.write(f"{result['choices'][0]['message']['content'].strip()}")
                     return website, result['choices'][0]['message']['content'].strip()
                 elif response.status == 429:
@@ -54,7 +55,7 @@ async def main(prompts, products_l, websites_l, concurrency=10):
         return await asyncio.gather(*tasks)
 
 
-with open('./list_5/inputs/list_5-input.json', 'r') as read_json:
+with open('./list_6/inputs/list_6-input.json', 'r') as read_json:
     stores_data = json.loads(read_json.read())
 products_only = [product_list for x, product_list in stores_data.items()]
 websites_only = [x for x, product_list in stores_data.items()]
