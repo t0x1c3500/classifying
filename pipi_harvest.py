@@ -6,12 +6,12 @@ import concurrent.futures
 
 with open('./pipi/accounts.json', 'r') as all_accounts_read:
     all_accounts = json.loads(all_accounts_read.read())
-    # all_accounts = all_accounts[3000:]
+    all_accounts = all_accounts[3000:]
 
 all_targets = []
-for filename in os.listdir('./list_4/products'):
+for filename in os.listdir('./list_5/products'):
     if filename.endswith('.json'):
-        file_path = os.path.join('./list_4/products', filename)
+        file_path = os.path.join('./list_5/products', filename)
         domain_name = filename.replace('.json', '')
         all_targets.append(domain_name)
 
@@ -64,7 +64,7 @@ def process_search(processing_target_chunk, index):
                             ads_content_object['result']['data'][0]['last_put_time'])
                         ad_targets = ads_content_object['result']['data'][0]['fetch_region']
 
-                    with open(f"./pipi/list_4/{processing_target}.json", 'w') as processing_store:
+                    with open(f"./pipi/list_5/{processing_target}.json", 'w') as processing_store:
                         processing_store.write(json.dumps({
                             'store': processing_target,
                             'ads': ads_count,

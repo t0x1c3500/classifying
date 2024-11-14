@@ -1,7 +1,7 @@
 import os
 import json
 
-directory_path = './list_4/products'
+directory_path = './list_5/products'
 all_products_list = {}
 
 for filename in os.listdir(directory_path):
@@ -9,7 +9,7 @@ for filename in os.listdir(directory_path):
         file_path = os.path.join(directory_path, filename)
 
         try:
-            with open(f"./pipi/list_4/{filename}", 'r') as i_file:
+            with open(f"./pipi/list_5/{filename}", 'r') as i_file:
                 i_data = json.load(i_file)
 
                 if i_data.get('ads', 0):
@@ -24,5 +24,5 @@ for filename in os.listdir(directory_path):
             print(f"The file at {file_path} does not exist.")
 
 
-with open('./list_4/inputs/list_4-input.json', 'w', encoding="utf-8") as write_json:
+with open('./list_5/inputs/list_5-input.json', 'w', encoding="utf-8") as write_json:
     write_json.write(json.dumps(all_products_list, ensure_ascii=False))
