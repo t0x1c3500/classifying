@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 
 links = []
 
-with open('./list_21/inputs/list_21-pre.txt', 'r') as file:
+with open('./list_1-1/inputs/list_1-1-pre.txt', 'r') as file:
     for line in file:
         line = line.strip()
         if line.startswith("http"):
@@ -100,7 +100,7 @@ def process_it(link, index):
     if len(final_products):
         domain = format_domain(link)
         print(f"Got Final Products For {domain}")
-        with open(f"./list_21/products/{domain}.json", "w") as link_write:
+        with open(f"./list_1-1/products/{domain}.json", "w") as link_write:
             link_write.write(json.dumps(final_products))
 
     return True
