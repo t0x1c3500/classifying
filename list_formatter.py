@@ -1,8 +1,8 @@
 formatted_lines = []
-with open('./list_4-1/inputs/list_4-1.txt', 'r') as file:
+with open('./list_5-1/inputs/list_5-1.txt', 'r') as file:
     for line in file:
         formatted_lines.append(f"https://{line.strip()}/collections/all?sort_by=created-descending")
 
-with open('./list_4-1/inputs/list_4-1-pre.txt', 'w') as file:
+with open('./list_5-1/inputs/list_5-1-pre.txt', 'w') as file:
     for line in formatted_lines:
         file.write(line + '\n')
