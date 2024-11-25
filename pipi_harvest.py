@@ -9,9 +9,9 @@ with open('./pipi/accounts.json', 'r') as all_accounts_read:
     all_accounts = all_accounts[3000:]
 
 all_targets = []
-for filename in os.listdir('./list_14/products'):
+for filename in os.listdir('./list_16/products'):
     if filename.endswith('.json'):
-        file_path = os.path.join('./list_14/products', filename)
+        file_path = os.path.join('./list_16/products', filename)
         domain_name = filename.replace('.json', '')
         all_targets.append(domain_name)
 
@@ -64,7 +64,7 @@ def process_search(processing_target_chunk, index):
                             ads_content_object['result']['data'][0]['last_put_time'])
                         ad_targets = ads_content_object['result']['data'][0]['fetch_region']
 
-                    with open(f"./pipi/list_14/{processing_target}.json", 'w') as processing_store:
+                    with open(f"./pipi/list_16/{processing_target}.json", 'w') as processing_store:
                         processing_store.write(json.dumps({
                             'store': processing_target,
                             'ads': ads_count,
