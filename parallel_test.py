@@ -29,7 +29,7 @@ async def fetch_with_retry(session, prompt, product_titles, website, max_retries
             ) as response:
                 if response.status == 200:
                     result = await response.json()
-                    with open(f"./list_16/results/{website}.txt", 'w') as write_s:
+                    with open(f"./list_18/results/{website}.txt", 'w') as write_s:
                         write_s.write(f"{result['choices'][0]['message']['content'].strip()}")
                     return website, result['choices'][0]['message']['content'].strip()
                 elif response.status == 429:
@@ -55,7 +55,7 @@ async def main(prompts, products_l, websites_l, concurrency=10):
         return await asyncio.gather(*tasks)
 
 
-with open('./list_16/inputs/list_16-input.json', 'r') as read_json:
+with open('./list_18/inputs/list_18-input.json', 'r') as read_json:
     stores_data = json.loads(read_json.read())
 products_only = [product_list for x, product_list in stores_data.items()]
 websites_only = [x for x, product_list in stores_data.items()]
